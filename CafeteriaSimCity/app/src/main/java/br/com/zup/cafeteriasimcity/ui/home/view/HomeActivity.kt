@@ -1,4 +1,4 @@
-package br.com.zup.cafeteriasimcity.ui.home
+package br.com.zup.cafeteriasimcity.ui.home.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import br.com.zup.cafeteriasimcity.R
 import br.com.zup.cafeteriasimcity.data.model.CoffeeResponse
 import br.com.zup.cafeteriasimcity.databinding.ActivityHomeBinding
-import br.com.zup.cafeteriasimcity.ui.login.LoginActivity
+import br.com.zup.cafeteriasimcity.ui.home.viewmodel.HomeViewModel
+import br.com.zup.cafeteriasimcity.ui.login.view.LoginActivity
 import com.squareup.picasso.Picasso
 
 class HomeActivity : AppCompatActivity() {
@@ -28,6 +29,13 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         viewModel.getImageCoffee()
         intObserver()
+        getUserData()
+    }
+
+    private fun getUserData() {
+        val name = viewModel.getNameUser()
+        val email = viewModel.getEmailUser()
+        binding.tvUserName.text = "$name - $email"
     }
 
     private fun intObserver() {
@@ -53,6 +61,10 @@ class HomeActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
+    private fun goToLogin(){
+        startActivity(Intent(this, LoginActivity::class.java))
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
@@ -62,7 +74,9 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.exit -> {
-                startActivity(Intent(this, LoginActivity::class.java))
+                viewModel.logoutUser()
+                this.finish()
+                goToLogin()
                 true
             }
             else -> super.onOptionsItemSelected(item)
