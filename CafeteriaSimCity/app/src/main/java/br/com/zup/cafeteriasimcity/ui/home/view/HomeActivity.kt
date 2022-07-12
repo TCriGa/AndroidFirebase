@@ -1,4 +1,4 @@
-package br.com.zup.cafeteriasimcity.ui.home
+package br.com.zup.cafeteriasimcity.ui.home.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import br.com.zup.cafeteriasimcity.R
 import br.com.zup.cafeteriasimcity.data.model.CoffeeResponse
 import br.com.zup.cafeteriasimcity.databinding.ActivityHomeBinding
-import br.com.zup.cafeteriasimcity.ui.login.LoginActivity
+import br.com.zup.cafeteriasimcity.ui.home.viewmodel.HomeViewModel
+import br.com.zup.cafeteriasimcity.ui.login.view.LoginActivity
 import com.squareup.picasso.Picasso
 
 class HomeActivity : AppCompatActivity() {

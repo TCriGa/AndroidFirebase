@@ -1,4 +1,4 @@
-package br.com.zup.cafeteriasimcity.ui.home
+package br.com.zup.cafeteriasimcity.ui.home.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
