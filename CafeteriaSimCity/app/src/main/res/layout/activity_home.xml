@@ -37,9 +37,19 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_250"
             android:contentDescription="@string/description_image_coffee"
+            app:layout_constraintBottom_toTopOf="@+id/ivFavorite"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <ImageView
+            android:id="@+id/ivFavorite"
+            android:layout_margin="@dimen/margin_size_16"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/description_favorite_icon"
+            android:src="@drawable/ic_disfavor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <ProgressBar
             android:id="@+id/pbLoading"

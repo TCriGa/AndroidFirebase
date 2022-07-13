@@ -16,6 +16,9 @@
         android:theme="@style/Theme.CafeteriaSimCity"
         tools:targetApi="31">
         <activity
+            android:name=".ui.favorites.view.FavoriteActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.register.view.RegisterActivity"
             android:exported="false" />
         <activity

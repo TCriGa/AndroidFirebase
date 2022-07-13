@@ -26,10 +26,11 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         viewModel.getImageCoffee()
+        setContentView(binding.root)
         intObserver()
         getUserData()
+        favoritedImage()
     }
 
     private fun getUserData() {
@@ -38,13 +39,20 @@ class HomeActivity : AppCompatActivity() {
         binding.tvUserName.text = "$name - $email"
     }
 
+    private fun favoritedImage(){
+        binding.ivFavorite.setOnClickListener {
+            viewModel.saveImageFavorited()
+            binding.ivFavorite.setImageResource(R.drawable.ic_favorite)
+        }
+    }
+
     private fun intObserver() {
         viewModel.coffeeResponse.observe(this) {
             loadImage(it)
         }
 
-        viewModel.errorMessage.observe(this) {
-            loadErrorMessage(it)
+        viewModel.message.observe(this) {
+            loadMessage(it)
         }
 
         viewModel.loading.observe(this) {
@@ -57,7 +65,7 @@ class HomeActivity : AppCompatActivity() {
             .into(binding.ivCoffeeDay)
     }
 
-    private fun loadErrorMessage(message: String) {
+    private fun loadMessage(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
