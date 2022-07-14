@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import br.com.zup.cafeteriasimcity.R
 import br.com.zup.cafeteriasimcity.data.model.CoffeeResponse
 import br.com.zup.cafeteriasimcity.databinding.ActivityHomeBinding
+import br.com.zup.cafeteriasimcity.ui.favorites.view.FavoriteActivity
 import br.com.zup.cafeteriasimcity.ui.home.viewmodel.HomeViewModel
 import br.com.zup.cafeteriasimcity.ui.login.view.LoginActivity
 import com.squareup.picasso.Picasso
@@ -73,6 +74,10 @@ class HomeActivity : AppCompatActivity() {
         startActivity(Intent(this, LoginActivity::class.java))
     }
 
+    private fun goToFavorites(){
+        startActivity(Intent(this, FavoriteActivity::class.java))
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
@@ -85,6 +90,10 @@ class HomeActivity : AppCompatActivity() {
                 viewModel.logoutUser()
                 this.finish()
                 goToLogin()
+                true
+            }
+            R.id.favoritos -> {
+                goToFavorites()
                 true
             }
             else -> super.onOptionsItemSelected(item)

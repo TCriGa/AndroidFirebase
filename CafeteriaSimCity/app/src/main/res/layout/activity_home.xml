@@ -44,7 +44,7 @@
         <ImageView
             android:id="@+id/ivFavorite"
             android:layout_margin="@dimen/margin_size_16"
-            android:layout_width="40dp"
+            android:layout_width="@dimen/size_40"
             android:layout_height="40dp"
             android:contentDescription="@string/description_favorite_icon"
             android:src="@drawable/ic_disfavor"

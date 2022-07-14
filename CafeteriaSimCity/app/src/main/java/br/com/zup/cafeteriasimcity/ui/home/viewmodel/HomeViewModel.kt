@@ -1,5 +1,6 @@
 package br.com.zup.cafeteriasimcity.ui.home.viewmodel
 
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,17 +8,15 @@ import androidx.lifecycle.viewModelScope
 import br.com.zup.cafeteriasimcity.data.datasource.remote.RetrofitService
 import br.com.zup.cafeteriasimcity.data.model.CoffeeResponse
 import br.com.zup.cafeteriasimcity.domain.repository.AuthRepository
-import br.com.zup.cafeteriasimcity.utils.FAVORITE_ERROR_MESSAGE
+import br.com.zup.cafeteriasimcity.domain.repository.FavoriteRepository
 import br.com.zup.cafeteriasimcity.utils.FAVORITE_MESSAGE
 import br.com.zup.cafeteriasimcity.utils.IMAGE_COFFEE_ERROR_MESSAGE
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class HomeViewModel : ViewModel() {
+    private val favoriteRepository = FavoriteRepository()
     private val authRepository = AuthRepository()
 
     private val _coffeeResponse = MutableLiveData<CoffeeResponse>()
@@ -46,23 +45,19 @@ class HomeViewModel : ViewModel() {
     }
 
     fun saveImageFavorited() {
-        try {
-            authRepository.databaseReference()
-                ?.addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        val databaseReference = authRepository.databaseReference()
-                        databaseReference?.setValue(_coffeeResponse.value?.arquivo.toString())
-                        _message.value = FAVORITE_MESSAGE
-                    }
+        val image = _coffeeResponse.value?.arquivo.toString()
+        val uri: Uri = Uri.parse(image)
+        val path: String? = uri.lastPathSegment?.replace(".jpg","")
 
-                    override fun onCancelled(error: DatabaseError) {
-                        _message.value = error.message
-                    }
-                })
-            _message.value = FAVORITE_MESSAGE
-        } catch (ex: Exception) {
-            _message.value = FAVORITE_ERROR_MESSAGE
-        }
+        favoriteRepository.databaseReference().child("$path")
+            .setValue(
+                image
+            ) { error, _ ->
+                if (error != null) {
+                    _message.value = error.message
+                }
+                _message.value = FAVORITE_MESSAGE
+            }
     }
 
     fun getNameUser() = authRepository.getNameUser()

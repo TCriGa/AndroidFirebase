@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1065051492342",
-    "project_id": "cafeteriasimcity",
-    "storage_bucket": "cafeteriasimcity.appspot.com"
+    "project_number": "532177726298",
+    "project_id": "cafeteria-simcity",
+    "storage_bucket": "cafeteria-simcity.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1065051492342:android:35825d83bd2d6df9e281d7",
+        "mobilesdk_app_id": "1:532177726298:android:7f8edae396f37000e62163",
         "android_client_info": {
           "package_name": "br.com.zup.cafeteriasimcity"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1065051492342-onr9qlv9i0qomij46v47djvfmd0foo9c.apps.googleusercontent.com",
+          "client_id": "532177726298-19so93dnutliqljl3865s122j6o59k9s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBij3dX0ZBpMT3H7tIY8emaXZfnUxLX3t0"
+          "current_key": "AIzaSyDGEch0Ab2cHMq5hGnfCwPHBOucB3MKNoE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1065051492342-onr9qlv9i0qomij46v47djvfmd0foo9c.apps.googleusercontent.com",
+              "client_id": "532177726298-19so93dnutliqljl3865s122j6o59k9s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

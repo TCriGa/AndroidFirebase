@@ -10,4 +10,5 @@ const val IMAGE_COFFEE_ERROR_MESSAGE = "Tivemos um problema ao carregar a imagem
 const val FAVORITE_ERROR_MESSAGE = "Não foi possível favoritar a imagem!"
 const val FAVORITE_MESSAGE = "Imagem favoritada com sucesso!!"
 const val IMAGE_COFFEE_PATH = "cafeteriasimcity"
-const val IMAGE_PATH = "coffeeimage"
+const val FAVORITE_PATH = "favorites"
+const val FAVORITE_LIST_ERROR_MESSAGE = "Não foi possível recuperar a lista de favoritos!"
