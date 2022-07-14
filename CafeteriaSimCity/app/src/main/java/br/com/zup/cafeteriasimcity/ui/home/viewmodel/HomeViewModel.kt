@@ -6,11 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.zup.cafeteriasimcity.data.datasource.remote.RetrofitService
 import br.com.zup.cafeteriasimcity.data.model.CoffeeResponse
+import br.com.zup.cafeteriasimcity.domain.repository.AuthenticationRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class HomeViewModel : ViewModel() {
+    private val authenticationRepository = AuthenticationRepository()
+
     private val _coffeeResponse = MutableLiveData<CoffeeResponse>()
     val coffeeResponse: LiveData<CoffeeResponse> = _coffeeResponse
 
@@ -35,4 +38,10 @@ class HomeViewModel : ViewModel() {
             }
         }
     }
+
+    fun getUserName() = authenticationRepository.getNameUser()
+
+    fun getUserEmail() = authenticationRepository.getEmailUser()
+
+    fun logout() = authenticationRepository.logoutOut()
 }

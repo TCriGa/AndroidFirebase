@@ -28,7 +28,14 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel.getImageCoffee()
+        showUserData()
         intObserver()
+    }
+
+    private fun showUserData(){
+        val name = viewModel.getUserName()
+        val email = viewModel.getUserEmail()
+        binding.tvUserName.text = "$name - $email"
     }
 
     private fun intObserver() {
@@ -54,6 +61,10 @@ class HomeActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
+    private fun goToLogin(){
+        startActivity(Intent(this, LoginActivity::class.java))
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
@@ -63,7 +74,9 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.exit -> {
-                startActivity(Intent(this, LoginActivity::class.java))
+                viewModel.logout()
+                this.finish()
+                goToLogin()
                 true
             }
             else -> super.onOptionsItemSelected(item)
