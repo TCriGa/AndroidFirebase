@@ -26,7 +26,7 @@ class FavoriteActivity : AppCompatActivity() {
         binding.rvImageCoffee.layoutManager = LinearLayoutManager(this)
         binding.rvImageCoffee.adapter = adapter
     }
-    
+
     private fun removeFavoriteImage(image: String) {
     }
 
