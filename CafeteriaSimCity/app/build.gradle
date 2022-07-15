@@ -65,7 +65,13 @@ dependencies {
     //################### FIREBASE ######################/
     implementation platform('com.google.firebase:firebase-bom:30.2.0')
     implementation 'com.google.firebase:firebase-auth-ktx'
+<<<<<<< HEAD
     implementation 'com.google.firebase:firebase-database-ktx'
+=======
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-database-ktx'
+
+>>>>>>> f0451ba (Atualizar)
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

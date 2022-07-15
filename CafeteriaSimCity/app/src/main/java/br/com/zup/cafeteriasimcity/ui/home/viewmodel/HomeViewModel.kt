@@ -9,8 +9,9 @@ import br.com.zup.cafeteriasimcity.data.datasource.remote.RetrofitService
 import br.com.zup.cafeteriasimcity.data.model.CoffeeResponse
 import br.com.zup.cafeteriasimcity.domain.repository.AuthenticationRepository
 import br.com.zup.cafeteriasimcity.domain.repository.FavoriteRepository
+
 import br.com.zup.cafeteriasimcity.utils.FAVORITE_MESSAGE
-import br.com.zup.cafeteriasimcity.utils.FAVORITE_PATH
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

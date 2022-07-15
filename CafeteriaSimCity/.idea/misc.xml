@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_favorite.xml" value="0.21014492753623187" />
+        <entry key="..\:/Users/thayana.moraes/Documents/AndroidFirebase/AndroidFirebase/CafeteriaSimCity/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.1109375" />
+        <entry key="..\:/Users/thayana.moraes/Documents/AndroidFirebase/AndroidFirebase/CafeteriaSimCity/app/src/main/res/layout/activity_favorite.xml" value="0.36302083333333335" />
+        <entry key="..\:/Users/thayana.moraes/Documents/AndroidFirebase/AndroidFirebase/CafeteriaSimCity/app/src/main/res/layout/activity_login.xml" value="0.36302083333333335" />
+        <entry key="..\:/Users/thayana.moraes/Documents/AndroidFirebase/AndroidFirebase/CafeteriaSimCity/app/src/main/res/layout/image_coffee_item.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/image_coffee_item.xml" value="0.375" />
-        <entry key="app/src/main/res/menu/menu.xml" value="0.375" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.2828125" />
       </map>
     </option>
   </component>
