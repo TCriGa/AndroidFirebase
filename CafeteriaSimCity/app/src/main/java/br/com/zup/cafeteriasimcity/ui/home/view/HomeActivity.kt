@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import br.com.zup.cafeteriasimcity.R
 import br.com.zup.cafeteriasimcity.data.model.CoffeeResponse
 import br.com.zup.cafeteriasimcity.databinding.ActivityHomeBinding
+import br.com.zup.cafeteriasimcity.ui.favorite.view.FavoriteActivity
 import br.com.zup.cafeteriasimcity.ui.home.viewmodel.HomeViewModel
 import br.com.zup.cafeteriasimcity.ui.login.view.LoginActivity
 import com.squareup.picasso.Picasso
@@ -61,8 +62,18 @@ class HomeActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
+    private fun favoritedImage(){
+        binding.ivFavorite.setOnClickListener {
+            binding.ivFavorite.setImageResource(R.drawable.ic_favorite)
+        }
+    }
+
     private fun goToLogin(){
         startActivity(Intent(this, LoginActivity::class.java))
+    }
+
+    private fun goToFavorites(){
+        startActivity(Intent(this, FavoriteActivity::class.java))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -77,6 +88,10 @@ class HomeActivity : AppCompatActivity() {
                 viewModel.logout()
                 this.finish()
                 goToLogin()
+                true
+            }
+            R.id.favoritos -> {
+                goToFavorites()
                 true
             }
             else -> super.onOptionsItemSelected(item)

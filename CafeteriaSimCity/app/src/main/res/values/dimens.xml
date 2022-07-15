@@ -7,4 +7,6 @@
     <dimen name="margin_size_32">32dp</dimen>
     <dimen name="size_250">250dp</dimen>
     <dimen name="text_size_12">12sp</dimen>
+    <dimen name="margin_size_8">8dp</dimen>
+    <dimen name="size_40">40dp</dimen>
 </resources>
