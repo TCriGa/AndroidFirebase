@@ -9,9 +9,6 @@ import br.com.zup.cafeteriasimcity.data.datasource.remote.RetrofitService
 import br.com.zup.cafeteriasimcity.data.model.CoffeeResponse
 import br.com.zup.cafeteriasimcity.domain.repository.AuthenticationRepository
 import br.com.zup.cafeteriasimcity.domain.repository.FavoriteRepository
-
-import br.com.zup.cafeteriasimcity.utils.FAVORITE_MESSAGE
-
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -23,8 +20,8 @@ class HomeViewModel : ViewModel() {
     private val _coffeeResponse = MutableLiveData<CoffeeResponse>()
     val coffeeResponse: LiveData<CoffeeResponse> = _coffeeResponse
 
-    private val _message = MutableLiveData<String>()
-    val message: LiveData<String> = _message
+    private val _errorMessage = MutableLiveData<String>()
+    val errorMessage: LiveData<String> = _errorMessage
 
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
@@ -38,12 +35,13 @@ class HomeViewModel : ViewModel() {
                 }
                 _coffeeResponse.value = response
             } catch (ex: Exception) {
-                _message.value = "Tivemos algum problema, tente novamente!"
+                _errorMessage.value = "Tivemos algum problema, tente novamente!"
             } finally {
                 _loading.value = false
             }
         }
     }
+
 
     fun saveImageFavorited() {
         val image = _coffeeResponse.value?.arquivo.toString()
